@@ -13,7 +13,7 @@ def reconstruct_place(place, n_frames, data_folder, out_folder):
         os.makedirs(reconstruct_args.outdir, exist_ok=True)
 
     reconstruct_args.index = list(range(n_frames))
-    # reconstruct(reconstruct_args)
+    reconstruct(reconstruct_args)
 
 if __name__ == '__main__':
     videos = ['data/videos/front.mp4',
@@ -28,16 +28,16 @@ if __name__ == '__main__':
 
     # ====== data processing ======
     print('extracting frames from video...')
-    # extract_from_video(videos, out_path, video_folder)
+    extract_from_video(videos, out_path, video_folder)
 
     print('processing frames from video...')
-    # process_input_folder(input_folder)
+    process_input_folder(input_folder)
 
     print('detecting fish masks...')
-    # predict(input_folder, model_path, 'cuda')
+    predict(input_folder, model_path, 'cuda')
 
     print('detecting fish keypoints...')
-    # detect_dlc(input_folder)
+    detect_dlc(input_folder)
 
     # ==============================
 
@@ -56,8 +56,8 @@ if __name__ == '__main__':
 
     n_frames = video_meta['image_count']
 
-    # reconstruct_place(2, n_frames, input_folder, out_folder)
-    # reconstruct_place(1, n_frames, input_folder, out_folder)
+    reconstruct_place(2, n_frames, input_folder, out_folder)
+    reconstruct_place(1, n_frames, input_folder, out_folder)
 
     # ==============================
 
